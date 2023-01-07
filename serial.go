@@ -8,8 +8,15 @@ import (
 	"github.com/tarm/serial"
 )
 
+const (
+	// SerialPort is the serial port to use
+	SerialPort = "/dev/cu.usbserial-1410"
+	// BaudRate is the baud rate to use
+	BaudRate = 115200
+)
+
 func main() {
-	c := &serial.Config{Name: "/dev/cu.usbserial-1410", Baud: 115200}
+	c := &serial.Config{Name: SerialPort, Baud: BaudRate}
 	s, err := serial.OpenPort(c)
 	if err != nil {
 		log.Fatal(err)
